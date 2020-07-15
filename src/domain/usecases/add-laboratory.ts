@@ -1,4 +1,4 @@
-import { LaboratoryModel } from './models/laboratory-model'
+import { LaboratoryModel } from '../models/laboratory-model'
 
 export interface AddLaboratoryModel {
   name: string
