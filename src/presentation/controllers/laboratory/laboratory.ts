@@ -5,7 +5,7 @@ import { serverError, badRequest } from '../../helpers/http-helper'
 export class LaboratoryController {
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const requiredFields = ['name']
+      const requiredFields = ['name', 'address']
       for (const field of requiredFields) {
         if (!httpRequest.body[field]) {
           return badRequest(new MissingParamError(field))
