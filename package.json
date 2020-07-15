@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/oliveirabalsa/api-labs-dasa/issues"
   },
-  "homepage": "https://github.com/oliveirabalsa/api-labs-dasa#readme"
+  "homepage": "https://github.com/oliveirabalsa/api-labs-dasa#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^2.4.4"
+  }
 }
