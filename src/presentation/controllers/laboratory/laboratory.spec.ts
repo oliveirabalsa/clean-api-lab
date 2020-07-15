@@ -1,6 +1,6 @@
-import { LaboratoryController } from './laboratoy'
+import { LaboratoryController } from './laboratory'
 
-describe('SignUp Controller', () => {
+describe('Laboratory Controller', () => {
   test('Should return 400 if no name is provided', () => {
     const sut = new LaboratoryController()
     const httpRequest = {
