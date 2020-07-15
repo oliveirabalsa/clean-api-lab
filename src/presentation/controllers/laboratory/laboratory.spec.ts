@@ -6,7 +6,7 @@ import { LaboratoryModel } from '../../../domain/models/laboratory-model'
 describe('Laboratory Controller', () => {
   const makeAddLaboratory = (): AddLaboratory => {
     class AddLaboratoryStub implements AddLaboratory {
-      async add (laboratory: AddLaboratoryModel): Promise<LaboratoryModel> {
+      async save (laboratory: AddLaboratoryModel): Promise<LaboratoryModel> {
         const faceLaboratory = {
           id: 'valid_id',
           name: 'valid_name',

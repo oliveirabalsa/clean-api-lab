@@ -7,5 +7,5 @@ export interface AddLaboratoryModel {
 }
 
 export interface AddLaboratory {
-  add: (account: AddLaboratoryModel) => Promise<LaboratoryModel>
+  save: (account: AddLaboratoryModel) => Promise<LaboratoryModel>
 }

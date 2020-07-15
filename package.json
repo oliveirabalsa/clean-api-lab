@@ -32,11 +32,14 @@
     "git-commit-msg-linter": "^2.4.4",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "knex": "^0.21.2",
     "lint-staged": "^10.2.11",
     "ts-jest": "^26.1.2",
     "typescript": "^3.9.6"
   },
   "dependencies": {
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "mongoose": "^5.9.24",
+    "mongoose-delete": "^0.5.2"
   }
 }

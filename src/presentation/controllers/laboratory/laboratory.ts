@@ -20,7 +20,7 @@ export class LaboratoryController {
       }
       const { name, address, status } = httpRequest.body
 
-      const laboratory = await this.addLaboratory.add({
+      const laboratory = await this.addLaboratory.save({
         name,
         address,
         status
