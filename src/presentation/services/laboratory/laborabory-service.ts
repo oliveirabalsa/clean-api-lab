@@ -1,24 +1,23 @@
 import connection from '../../../infra/db/connection'
-
-class Controller {
+import { LaboratoryModel } from '../../../domain/models/laboratory-model'
+export class LaboratoryService {
   async all (page: number): Promise<any> {
-    return await connection('products')
+    return await connection('laboratory')
       .limit(5)
       .offset((page - 1) * 5)
       .select('*')
   }
 
-  async save (payload: any): Promise<any> {
-    return await connection('products').insert(payload)
+  async save (payload: LaboratoryModel): Promise<any> {
+    // return await connection('laboratory').insert(payload)
+    await console.log(payload)
   }
 
   async one (id: number): Promise<any> {
-    return await connection('products').select('*').where('id', id)
+    return await connection('laboratory').select('*').where('id', id)
   }
 
   async delete (id: number): Promise<any> {
-    return await connection('products').where('id', id).delete()
+    return await connection('laboratory').where('id', id).delete()
   }
 }
-
-module.exports = new Controller()

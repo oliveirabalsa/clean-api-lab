@@ -1,13 +1,13 @@
 import { HttpRequest, HttpResponse } from '../../protocols/http'
 import { MissingParamError } from '../../errors'
 import { serverError, badRequest, ok } from '../../helpers/http-helper'
-import { AddLaboratory } from '../../../domain/usecases/add-laboratory'
+import { LaboratoryService } from '../../services/laboratory/laborabory-service'
 
 export class LaboratoryController {
-  private readonly addLaboratory: AddLaboratory
+  private readonly laboratoryService
 
-  constructor (addLaboratory: AddLaboratory) {
-    this.addLaboratory = addLaboratory
+  constructor (laboratoryService: LaboratoryService) {
+    this.laboratoryService = laboratoryService
   }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
@@ -20,7 +20,7 @@ export class LaboratoryController {
       }
       const { name, address, status } = httpRequest.body
 
-      const laboratory = await this.addLaboratory.save({
+      const laboratory = await this.laboratoryService.save({
         name,
         address,
         status
