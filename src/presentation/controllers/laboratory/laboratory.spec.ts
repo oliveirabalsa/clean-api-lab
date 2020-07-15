@@ -28,4 +28,17 @@ describe('Laboratory Controller', () => {
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new MissingParamError('address'))
   })
+
+  test('Should return 400 if no status is provided', async () => {
+    const sut = new LaboratoryController()
+    const httpRequest = {
+      body: {
+        name: 'any_name',
+        address: 'any_address'
+      }
+    }
+    const httpResponse = await sut.handle(httpRequest)
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new MissingParamError('status'))
+  })
 })
