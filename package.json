@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests --watch",
-    "test:staged": "jest --passWithNoTests "
+    "start": "ts-node-dev  --ignore-watch --no-notify src/presentation/server.ts",
+    "test:staged": "jest --passWithNoTests ",
+    "migrate": "knex --knexfile knexfile.ts migrate:latest"
   },
   "repository": {
     "type": "git",
@@ -35,12 +37,13 @@
     "knex": "^0.21.2",
     "lint-staged": "^10.2.11",
     "ts-jest": "^26.1.2",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.51",
     "typescript": "^3.9.6"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "mongoose": "^5.9.24",
-    "mongoose-delete": "^0.5.2",
+    "express": "^4.17.1",
     "pg": "^8.3.0"
   }
 }

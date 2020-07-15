@@ -3,15 +3,15 @@ import Knex from 'knex'
 export async function up (knex: Knex): Promise<any> {
   return await knex.schema.createTable('labs_exams', table => {
     table.increments('id').primary()
-    table.integer('point_id')
+    table.integer('lab_id')
       .notNullable()
       .references('id')
-      .inTable('labs')
+      .inTable('laboratory')
 
-    table.integer('item_id')
+    table.integer('exam_id')
       .notNullable()
       .references('id')
-      .inTable('exams')
+      .inTable('exam')
   })
 }
 

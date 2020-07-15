@@ -1,4 +1,5 @@
-export const connection = {
+import path from 'path'
+module.exports = {
 
   development: {
     client: 'postgresql',
@@ -12,7 +13,7 @@ export const connection = {
       max: 10
     },
     migrations: {
-      tableName: 'knex_migrations'
+      directory: path.resolve(__dirname, 'src', 'infra', 'db', 'migrations')
     }
   },
 

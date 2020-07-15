@@ -1,6 +1,5 @@
 import knex from 'knex'
-import * as configuration from '../../../knexfile'
 
-const connection = knex(configuration.connection.development)
+const configuration = knex({})
 
-export default connection
+export default configuration
