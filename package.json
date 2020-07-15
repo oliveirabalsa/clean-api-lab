@@ -35,5 +35,8 @@
     "lint-staged": "^10.2.11",
     "ts-jest": "^26.1.2",
     "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "cors": "^2.8.5"
   }
 }
