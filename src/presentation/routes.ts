@@ -13,8 +13,8 @@ const deleteLaboratoryController = new DeleteLaboratoryController()
 const updateLaboratoryController = new UpdateLaboratoryController()
 
 routes.post('/laboratory', laboratoryController.handle)
+routes.put('/laboratory/:id', updateLaboratoryController.handle)
 routes.get('/laboratory', loadLaboratoryController.handle)
 routes.delete('/laboratory/:id', deleteLaboratoryController.handle)
-routes.put('/laboratory:id', updateLaboratoryController.handle)
 
 export default routes

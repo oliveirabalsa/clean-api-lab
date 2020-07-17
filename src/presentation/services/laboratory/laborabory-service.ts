@@ -3,9 +3,9 @@ import { LaboratoryModel } from '../../../domain/models/laboratory-model'
 import { AddLaboratoryModel } from '../../../domain//usecases/add-laboratory'
 
 export class LaboratoryService {
-  async all (page?: number): Promise<any> {
+  async all (page: number = 1): Promise<any> {
     return await connection('laboratory')
-      .limit(5)
+      .limit(15)
       .offset((page - 1) * 5)
       .select('*')
   }
@@ -15,8 +15,8 @@ export class LaboratoryService {
   }
 
   async update (payload: AddLaboratoryModel): Promise<any> {
-    const { id } = payload
-    return await connection('laboratory').where('id', id).update(payload)
+    const { id, name, address, status } = payload
+    return await connection('laboratory').where('id', id).update({ name, address, status })
   }
 
   async delete (id: number): Promise<any> {
