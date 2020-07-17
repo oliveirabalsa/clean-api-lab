@@ -10,16 +10,21 @@ export class ExamController {
       const requiredFields = ['name', 'type', 'status']
       for (const field of requiredFields) {
         if (!req.body[field]) {
-          return res.status(400).json(badRequest(new MissingParamError(field)))
+          console.log(badRequest(new MissingParamError(field)))
+          return res.status(400).send(badRequest(new MissingParamError(field)))
         }
       }
       const { name, type, status } = req.body
-      const exam = await examService.save({
+      await examService.save({
         name,
         type,
         status
       })
-      await res.status(200).json(ok(exam))
+
+      const data = {
+        success: req.body
+      }
+      await res.status(200).json(ok(data))
     } catch (error) {
       // console.log(error.message)
       return res.status(500).json(serverError())

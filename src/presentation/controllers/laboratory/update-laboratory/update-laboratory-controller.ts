@@ -16,13 +16,16 @@ export class UpdateLaboratoryController {
       const { name, address, status } = req.body
       const id = req.params.id
 
-      const laboratory = await laboratoryService.update({
+      await laboratoryService.update({
         id,
         name,
         address,
         status
       })
-      await res.status(200).json(ok(laboratory))
+      const data = {
+        success: req.body
+      }
+      await res.status(200).json(ok(data))
     } catch (error) {
       return res.status(500).json(serverError())
     }

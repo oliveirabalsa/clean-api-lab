@@ -14,13 +14,15 @@ export class LaboratoryController {
         }
       }
       const { name, address, status } = req.body
-      const laboratory = await laboratoryService.save({
+      await laboratoryService.save({
         name,
         address,
         status
       })
-
-      await res.status(200).json(ok(laboratory))
+      const data = {
+        success: req.body
+      }
+      await res.status(200).json(ok(data))
     } catch (error) {
       // console.log(error.message)
       return res.status(500).json(serverError())

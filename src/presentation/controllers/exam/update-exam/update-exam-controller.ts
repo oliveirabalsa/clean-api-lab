@@ -16,13 +16,17 @@ export class UpdateExamController {
       const { name, type, status } = req.body
       const id = req.params.id
 
-      const Exam = await examService.update({
+      await examService.update({
         id,
         name,
         type,
         status
       })
-      await res.status(200).json(ok(Exam))
+
+      const data = {
+        success: req.body
+      }
+      await res.status(200).json(ok(data))
     } catch (error) {
       return res.status(500).json(serverError())
     }
