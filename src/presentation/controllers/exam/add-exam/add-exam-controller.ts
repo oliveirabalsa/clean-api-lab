@@ -9,8 +9,8 @@ export class ExamController {
       const examService = new ExamService()
       const requiredFields = ['name', 'type', 'status']
       for (const field of requiredFields) {
+        req.body.status = String(req.body.status)
         if (!req.body[field]) {
-          console.log(badRequest(new MissingParamError(field)))
           return res.status(400).send(badRequest(new MissingParamError(field)))
         }
       }

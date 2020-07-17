@@ -9,6 +9,7 @@ export class LaboratoryController {
       const laboratoryService = new LaboratoryService()
       const requiredFields = ['name', 'address', 'status']
       for (const field of requiredFields) {
+        req.body.status = String(req.body.status)
         if (!req.body[field]) {
           return res.status(400).json(badRequest(new MissingParamError(field)))
         }
