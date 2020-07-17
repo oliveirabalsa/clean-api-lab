@@ -13,7 +13,7 @@ export class LaboratoryService {
   }
 
   async one (id: number): Promise<any> {
-    return await connection('laboratory').select('*').where('id', id)
+    return await connection('laboratory').where('id', id).first()
   }
 
   async delete (id: number): Promise<any> {
