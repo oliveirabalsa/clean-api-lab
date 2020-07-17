@@ -1,9 +1,9 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
+import { LaboratoryController } from './controllers/laboratory/add-laboratoy/add-laboratory-controller'
 
 const routes = express()
+const laboratoryController = new LaboratoryController()
 
-routes.get('/', (req: Request, res: Response) => {
-  return res.send('oi')
-})
+routes.post('/laboratory', laboratoryController.handle)
 
 export default routes

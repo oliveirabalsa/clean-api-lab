@@ -2,7 +2,7 @@ import path from 'path'
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       host: 'db',
       user: 'postgres',

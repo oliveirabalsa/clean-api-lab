@@ -9,8 +9,7 @@ export class LaboratoryService {
   }
 
   async save (payload: LaboratoryModel): Promise<any> {
-    // return await connection('laboratory').insert(payload)
-    await console.log(payload)
+    return await connection('laboratory').insert(payload)
   }
 
   async one (id: number): Promise<any> {
