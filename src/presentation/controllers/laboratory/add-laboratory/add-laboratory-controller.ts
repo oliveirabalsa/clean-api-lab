@@ -1,4 +1,3 @@
-import { response } from '../../../helpers/response-helper'
 import { serverError, badRequest, ok } from '../../../helpers/http-helper'
 import { MissingParamError } from '../../../errors'
 import { LaboratoryService } from '../../../services/laboratory/laborabory-service'
@@ -11,7 +10,7 @@ export class LaboratoryController {
       const requiredFields = ['name', 'address', 'status']
       for (const field of requiredFields) {
         if (!req.body[field]) {
-          return response(badRequest(new MissingParamError(field)))
+          return res.status(400).json(badRequest(new MissingParamError(field)))
         }
       }
       const { name, address, status } = req.body
@@ -24,7 +23,7 @@ export class LaboratoryController {
       await res.status(200).json(ok(laboratory))
     } catch (error) {
       // console.log(error.message)
-      return response(serverError())
+      return res.status(500).json(serverError())
     }
   }
 }
