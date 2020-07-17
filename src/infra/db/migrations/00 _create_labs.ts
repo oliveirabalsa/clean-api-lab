@@ -6,6 +6,7 @@ export async function up (knex: Knex): Promise<any> {
     table.string('name').notNullable()
     table.string('address').notNullable()
     table.boolean('status').notNullable()
+    table.string('exams').notNullable()
   })
 }
 

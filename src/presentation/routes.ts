@@ -1,18 +1,20 @@
 import express from 'express'
-import { LaboratoryController } from './controllers/laboratory/add-laboratoy/add-laboratory-controller'
-import { LoadLaboratoryController } from './controllers/laboratory/load-laboratory/load-laboratory'
-import { DeleteLaboratoryController } from './controllers/laboratory/delete-laboratory/delete-laboratory'
-import { LoadOneLaboratoryController } from './controllers/laboratory/load-one-laboratory/load-one-laboratory'
+import {
+  LaboratoryController,
+  LoadLaboratoryController,
+  DeleteLaboratoryController,
+  UpdateLaboratoryController
+} from './controllers/laboratory/index'
 
 const routes = express()
 const laboratoryController = new LaboratoryController()
 const loadLaboratoryController = new LoadLaboratoryController()
 const deleteLaboratoryController = new DeleteLaboratoryController()
-const loadOneLaboratoryController = new LoadOneLaboratoryController()
+const updateLaboratoryController = new UpdateLaboratoryController()
 
 routes.post('/laboratory', laboratoryController.handle)
 routes.get('/laboratory', loadLaboratoryController.handle)
 routes.delete('/laboratory/:id', deleteLaboratoryController.handle)
-routes.get('/laboratory/:id', loadOneLaboratoryController.handle)
+routes.put('/laboratory:id', updateLaboratoryController.handle)
 
 export default routes

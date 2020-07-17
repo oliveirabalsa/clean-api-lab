@@ -1,5 +1,7 @@
 import connection from '../../../infra/db/connection'
 import { LaboratoryModel } from '../../../domain/models/laboratory-model'
+import { AddLaboratoryModel } from '../../../domain//usecases/add-laboratory'
+
 export class LaboratoryService {
   async all (page?: number): Promise<any> {
     return await connection('laboratory')
@@ -12,8 +14,9 @@ export class LaboratoryService {
     return await connection('laboratory').insert(payload)
   }
 
-  async one (id: number): Promise<any> {
-    return await connection('laboratory').where('id', id).first()
+  async update (payload: AddLaboratoryModel): Promise<any> {
+    const { id } = payload
+    return await connection('laboratory').where('id', id).update(payload)
   }
 
   async delete (id: number): Promise<any> {
