@@ -1,8 +1,8 @@
-import { MissingParamError } from '../../../errors'
+import { response } from '../../../helpers/response-helper'
 import { serverError, badRequest, ok } from '../../../helpers/http-helper'
+import { MissingParamError } from '../../../errors'
 import { LaboratoryService } from '../../../services/laboratory/laborabory-service'
 import { Request, Response } from 'express'
-import { response } from '../../../helpers/response-helper'
 
 export class LaboratoryController {
   async handle (req: Request, res: Response): Promise<any> {
@@ -11,7 +11,7 @@ export class LaboratoryController {
       const requiredFields = ['name', 'address', 'status']
       for (const field of requiredFields) {
         if (!req.body[field]) {
-          return badRequest(new MissingParamError(field))
+          return response(badRequest(new MissingParamError(field)))
         }
       }
       const { name, address, status } = req.body
