@@ -15,3 +15,8 @@ export const ok = (data: any): HttpResponse => ({
   statusCode: 200,
   body: data
 })
+
+export const notFound = (): HttpResponse => ({
+  statusCode: 404,
+  body: 'Data not found'
+})

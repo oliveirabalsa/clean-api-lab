@@ -1,7 +1,7 @@
 import connection from '../../../infra/db/connection'
 import { LaboratoryModel } from '../../../domain/models/laboratory-model'
 export class LaboratoryService {
-  async all (page: number): Promise<any> {
+  async all (page?: number): Promise<any> {
     return await connection('laboratory')
       .limit(5)
       .offset((page - 1) * 5)
