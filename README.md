@@ -243,7 +243,7 @@ Exemplo => /laboratory/1/exam
 Método: POST
 
 {
-    "exam_id": "1",
+    "exam_id": "1"
 }
 
 OBS: é feita uma validação para que caso este laboratório não existe ou este exame não exista retorne um erro.
@@ -255,7 +255,7 @@ Exemplo => /laboratory/1/exam
 Método: DELETE
 
 {
-    "exam_id": "1",
+    "exam_id": "1"
 }
 `` ``
 
