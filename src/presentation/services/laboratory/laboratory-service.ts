@@ -1,6 +1,6 @@
 import connection from '../../../infra/db/connection'
 import { LaboratoryModel } from '../../../domain/models/laboratory-model'
-import { AddLaboratoryModel } from '../../../domain//usecases/add-laboratory'
+import { AddLaboratoryModel } from '../../../domain/usecases/add-laboratory'
 
 export class LaboratoryService {
   async all (page: number = 1): Promise<any> {
@@ -10,6 +10,10 @@ export class LaboratoryService {
       .where('status', '=', 'true')
       .orderBy('id')
       .select('*')
+  }
+
+  async one (id: number): Promise<any> {
+    return await connection('laboratory').where('id', id).select('*')
   }
 
   async save (payload: LaboratoryModel): Promise<any> {

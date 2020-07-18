@@ -12,6 +12,10 @@ export class ExamService {
       .select('*')
   }
 
+  async one (id: number): Promise<any> {
+    return await connection('exam').where('id', id).select('*')
+  }
+
   async save (payload: ExamModel): Promise<any> {
     return await connection('exam').insert(payload)
   }

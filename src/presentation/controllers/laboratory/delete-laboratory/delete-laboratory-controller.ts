@@ -1,5 +1,5 @@
 import { serverError, noContent } from '../../../helpers/http-helper'
-import { LaboratoryService } from '../../../services/laboratory/laborabory-service'
+import { LaboratoryService } from '../../../services/laboratory/laboratory-service'
 import { Request, Response } from 'express'
 
 export class DeleteLaboratoryController {

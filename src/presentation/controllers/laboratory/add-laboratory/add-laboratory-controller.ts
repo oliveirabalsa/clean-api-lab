@@ -1,6 +1,6 @@
 import { serverError, badRequest, ok } from '../../../helpers/http-helper'
 import { MissingParamError } from '../../../errors'
-import { LaboratoryService } from '../../../services/laboratory/laborabory-service'
+import { LaboratoryService } from '../../../services/laboratory/laboratory-service'
 import { Request, Response } from 'express'
 
 export class LaboratoryController {
