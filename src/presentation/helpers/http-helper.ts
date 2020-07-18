@@ -25,3 +25,8 @@ export const noContent = (): HttpResponse => ({
   statusCode: 204,
   body: ''
 })
+
+export const invalidEndpoint = (): HttpResponse => ({
+  statusCode: 404,
+  body: 'Invalid method or endpoint'
+})
