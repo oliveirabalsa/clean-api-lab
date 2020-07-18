@@ -1,19 +1,7 @@
 import express from 'express'
-import {
-  LaboratoryController,
-  LoadLaboratoryController,
-  DeleteLaboratoryController,
-  UpdateLaboratoryController
-} from './controllers/laboratory/index'
-
-import { ExamController } from './controllers/exam/add-exam/add-exam-controller'
-import { UpdateExamController } from './controllers/exam/update-exam/update-exam-controller'
-import { DeleteExamController } from './controllers/exam/delete-exam/delete-exam-controller'
-import { LoadExamController } from './controllers/exam/load-exam/load-exam-controller'
-
-import { ExamLaboratoryController } from './controllers/exam-laboratory/add-exam-laboratory/add-exam-laboratory-controller'
-import { DeleteExamLaboratoryController } from './controllers/exam-laboratory/delete-exam-laboratory/delete-exam-laboratory'
-
+import { LaboratoryController, LoadLaboratoryController, DeleteLaboratoryController, UpdateLaboratoryController } from './controllers/laboratory/index'
+import { ExamController, UpdateExamController, DeleteExamController, LoadExamController } from './controllers/exam/index'
+import { ExamLaboratoryController, DeleteExamLaboratoryController } from './controllers/exam-laboratory/index'
 import { InvalidEndpointController } from './controllers/invalid-endpoint/invalid-endpoint-controller'
 
 const routes = express()
