@@ -7,7 +7,6 @@ export class LoadExamController {
     try {
       const examService = new ExamService()
       const exam = await examService.all()
-      console.log(exam)
       if (!exam.length) {
         return res.status(404).json(notFound())
       }

@@ -6,11 +6,15 @@ export class LoadLaboratoryController {
   async handle (req: Request, res: Response): Promise<any> {
     try {
       const laboratoryService = new LaboratoryService()
-      const laboratory = await laboratoryService.all()
-      if (!laboratory.length) {
+      const laboratories = await laboratoryService.all()
+      if (!laboratories.length) {
         return res.status(404).json(notFound())
       }
-      await res.status(200).json(ok(laboratory))
+      for (const laboratory of laboratories) {
+        const available_exams: any = await laboratoryService.exams(laboratory.id)
+        laboratory.available_exams = available_exams
+      }
+      await res.status(200).json(ok(laboratories))
     } catch (error) {
       return res.status(500).json(serverError())
     }
