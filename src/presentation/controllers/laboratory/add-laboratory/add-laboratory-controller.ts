@@ -21,7 +21,9 @@ export class LaboratoryController {
         status
       })
       const data = {
-        success: req.body
+        success: {
+          ...req.body
+        }
       }
       await res.status(200).json(ok(data))
     } catch (error) {

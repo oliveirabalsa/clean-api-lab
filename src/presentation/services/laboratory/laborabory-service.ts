@@ -5,8 +5,10 @@ import { AddLaboratoryModel } from '../../../domain//usecases/add-laboratory'
 export class LaboratoryService {
   async all (page: number = 1): Promise<any> {
     return await connection('laboratory')
-      .limit(15)
-      .offset((page - 1) * 5)
+      .limit(10)
+      .offset((page - 1) * 10)
+      .where('status', '=', 'true')
+      .orderBy('id')
       .select('*')
   }
 
@@ -20,6 +22,16 @@ export class LaboratoryService {
   }
 
   async delete (id: number): Promise<any> {
-    return await connection('laboratory').where('id', id).delete()
+    const status = 'false'
+    return await connection('laboratory')
+      .where('id', id)
+      .update({ status })
+  }
+
+  async exams (id: number): Promise<any> {
+    return await connection('exam')
+      .join('labs_exams', 'exam.id', '=', 'labs_exams.exam_id')
+      .where('labs_exams.lab_id', id)
+      .select('*')
   }
 }

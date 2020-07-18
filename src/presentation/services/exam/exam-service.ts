@@ -5,8 +5,10 @@ import { AddExamModel } from '../../../domain//usecases/add-exam'
 export class ExamService {
   async all (page: number = 1): Promise<any> {
     return await connection('exam')
-      .limit(15)
-      .offset((page - 1) * 15)
+      .limit(10)
+      .offset((page - 1) * 10)
+      .where('status', '=', 'true')
+      .orderBy('id')
       .select('*')
   }
 
@@ -20,6 +22,9 @@ export class ExamService {
   }
 
   async delete (id: number): Promise<any> {
-    return await connection('exam').where('id', id).delete()
+    const status = 'false'
+    return await connection('exam')
+      .where('id', id)
+      .update({ status })
   }
 }
