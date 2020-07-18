@@ -47,27 +47,34 @@ Com o servidor rodando, basta duplicar a aba do seu terminal e rodar npm test.
 # Rotas
 
 `` ``
-  URL BASE:
-  http: // localhost:3000 => caso esteja rodando na máquina local
+ URL BASE:
+ http: // localhost:3000 => caso esteja rodando na máquina local
 
-  Laboratórios
+ Laboratórios
   
-  get /laboratory
-  post /laboratory
-  put  /laboratory/:id
-  delete /laboratory/:id
+ get /laboratory
+  
+ post /laboratory
+  
+ put  /laboratory/:id
+  
+ delete /laboratory/:id
    
-  Exames
+ Exames
   
-  get /exam
-  post /exam
-  put  /exam/:id
-  delete /exam/:id
+ get /exam
   
-  Exames ao latoratório
+ post /exam
   
-  post /laboratory/:id/exam
-  delete /laboratory/:id/exam
+ put  /exam/:id
+  
+ delete /exam/:id
+  
+ Exames ao latoratório
+  
+ post /laboratory/:id/exam
+  
+ delete /laboratory/:id/exam
 
 `` ``
 
