@@ -1,97 +1,47 @@
-// import { LaboratoryController } from './add-laboratory-controller'
-// import { MissingParamError } from '../../../errors'
-// import { AddLaboratory, AddLaboratoryModel } from '../../../../domain/usecases/add-laboratory'
-// import { LaboratoryModel } from '../../../../domain/models/laboratory-model'
-// import { LaboratoryService } from '../../../services/laboratory/laborabory-service'
+import { LaboratoryController } from './add-laboratory-controller'
+import app from '../../../app'
+import { AddLaboratory } from '../../../../domain/usecases/add-laboratory'
+import request from 'supertest'
 
-// describe('Laboratory Controller', () => {
-//   const makeAddLaboratory = (): AddLaboratory => {
-//     class AddLaboratoryStub implements AddLaboratory {
-//       add: (laboratory: AddLaboratoryModel) => Promise<LaboratoryModel>
-//       async save (laboratory: AddLaboratoryModel): Promise<LaboratoryModel> {
-//         const faceLaboratory = {
-//           id: 'valid_id',
-//           name: 'valid_name',
-//           address: 'valid_address',
-//           status: true
-//         }
-//         return await new Promise(resolve => resolve(faceLaboratory))
-//       }
-//     }
-//     return new AddLaboratoryStub()
-//   }
+describe('Laboratory Controller', () => {
+  interface SutTypes {
+    sut: LaboratoryController
+    addLaboratoryStub: AddLaboratory
+  }
 
-//   interface SutTypes {
-//     sut: LaboratoryController
-//     addLaboratoryStub: AddLaboratory
-//   }
+  test('Should return 400 if no name is provided', async () => {
+    const httpResponse = await request(app)
+      .post('/laboratory')
+      .send({
+        address: 'valid_address',
+        status: true
+      })
+    const response = httpResponse.body
+    expect(httpResponse.statusCode).toBe(400)
+    expect(response.body).toEqual({ name: 'Missing param: name' })
+  })
 
-//   const makeSut = (): SutTypes => {
-//     const laboraboryService = new LaboratoryService()
-//     const addLaboratoryStub = makeAddLaboratory()
-//     const sut = new LaboratoryController(laboraboryService)
-//     return {
-//       sut,
-//       addLaboratoryStub
-//     }
-//   }
+  test('Should return 400 if no address is provided', async () => {
+    const httpResponse = await request(app)
+      .post('/laboratory')
+      .send({
+        name: 'valid_name',
+        status: true
+      })
+    const response = httpResponse.body
+    expect(httpResponse.statusCode).toBe(400)
+    expect(response.body).toEqual({ name: 'Missing param: address' })
+  })
 
-//   test('Should return 400 if no name is provided', async () => {
-//     const { sut } = makeSut()
-//     const httpRequest = {
-//       body: {
-//         address: 'any_address',
-//         status: true
-//       }
-//     }
-
-//     const httpResponse = await sut.handle(httpRequest)
-//     expect(httpResponse.statusCode).toBe(400)
-//     expect(httpResponse.body).toEqual(new MissingParamError('name'))
-//   })
-
-//   test('Should return 400 if no address is provided', async () => {
-//     const { sut } = makeSut()
-//     const httpRequest = {
-//       body: {
-//         name: 'any_name',
-//         status: true
-//       }
-//     }
-//     const httpResponse = await sut.handle(httpRequest)
-//     expect(httpResponse.statusCode).toBe(400)
-//     expect(httpResponse.body).toEqual(new MissingParamError('address'))
-//   })
-
-//   test('Should return 400 if no status is provided', async () => {
-//     const { sut } = makeSut()
-//     const httpRequest = {
-//       body: {
-//         name: 'any_name',
-//         address: 'any_address'
-//       }
-//     }
-//     const httpResponse = await sut.handle(httpRequest)
-//     expect(httpResponse.statusCode).toBe(400)
-//     expect(httpResponse.body).toEqual(new MissingParamError('status'))
-//   })
-
-// test('Should return 200 if valid data is provided', async () => {
-//   const { sut } = makeSut()
-//   const httpRequest = {
-//     body: {
-//       name: 'valid_name',
-//       address: 'valid_address',
-//       status: true
-//     }
-//   }
-//   const httpResponse = await sut.handle(httpRequest)
-//   expect(httpResponse.statusCode).toBe(200)
-//   expect(httpResponse.body).toEqual({
-//     id: 'valid_id',
-//     name: 'valid_name',
-//     address: 'valid_address',
-//     status: true
-//   })
-// })
-// })
+  test('Should return 400 if no status is provided', async () => {
+    const httpResponse = await request(app)
+      .post('/laboratory')
+      .send({
+        name: 'valid_name',
+        address: 'valid_address'
+      })
+    const response = httpResponse.body
+    expect(httpResponse.statusCode).toBe(400)
+    expect(response.body).toEqual({ name: 'Missing param: status' })
+  })
+})
