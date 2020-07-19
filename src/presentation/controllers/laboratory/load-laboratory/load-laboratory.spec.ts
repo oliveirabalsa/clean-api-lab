@@ -2,7 +2,7 @@ import app from '../../../app'
 import request from 'supertest'
 
 describe('LoadLaboratoryController', () => {
-  test('Should return 404 if no id is provided', async () => {
+  test('Should return 500 if server is not running', async () => {
     const httpResponse = await request(app)
       .get('/laboratory')
     const response = httpResponse.body
