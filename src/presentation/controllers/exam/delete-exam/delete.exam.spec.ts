@@ -1,7 +1,7 @@
 import app from '../../../app'
 import request from 'supertest'
 
-describe('DeleteLaboratoryController', () => {
+describe('DeleteExamController', () => {
   test('Should return 404 if no id is provided', async () => {
     const httpResponse = await request(app)
       .delete('/exam')
