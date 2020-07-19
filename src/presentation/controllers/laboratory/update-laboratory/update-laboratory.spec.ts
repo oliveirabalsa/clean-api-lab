@@ -4,7 +4,7 @@ import request from 'supertest'
 describe('UpdateLaboratoryController', () => {
   test('Should return 400 if no name is provided', async () => {
     const httpResponse = await request(app)
-      .post('/laboratory')
+      .put('/laboratory/1')
       .send({
         address: 'valid_address',
         status: true
@@ -16,7 +16,7 @@ describe('UpdateLaboratoryController', () => {
 
   test('Should return 400 if no address is provided', async () => {
     const httpResponse = await request(app)
-      .post('/laboratory')
+      .put('/laboratory/1')
       .send({
         name: 'valid_name',
         status: true
@@ -28,7 +28,7 @@ describe('UpdateLaboratoryController', () => {
 
   test('Should return 400 if no status is provided', async () => {
     const httpResponse = await request(app)
-      .post('/laboratory')
+      .put('/laboratory/1')
       .send({
         name: 'valid_name',
         address: 'valid_address'
