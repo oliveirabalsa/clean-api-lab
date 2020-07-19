@@ -1,14 +1,7 @@
-import { LaboratoryController } from './add-laboratory-controller'
 import app from '../../../app'
-import { AddLaboratory } from '../../../../domain/usecases/add-laboratory'
 import request from 'supertest'
 
 describe('Laboratory Controller', () => {
-  interface SutTypes {
-    sut: LaboratoryController
-    addLaboratoryStub: AddLaboratory
-  }
-
   test('Should return 400 if no name is provided', async () => {
     const httpResponse = await request(app)
       .post('/laboratory')
