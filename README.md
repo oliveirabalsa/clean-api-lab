@@ -1,5 +1,10 @@
 # api-labs-dasa
-O APi foi construído usando Node.js, framework Express para estruturar, PostgreSQL e Knex para conexões com bancos de dados.
+O APi foi construído usando Node.js, framework Express, PostgreSQL e Knex para conexões com bancos de dados.
+
+# Para iniciar o projeto
+
+ Antes de iniciar o projeto é necessário ter o node.js instalado na máquina (https://nodejs.org/en/download/) junto à biblioteca npm.
+ Também é necessário ter o Docker instalado (https://docs.docker.com/)
 
 # Módulos usados:
 Docker - O Docker fornece uma camada de abstração e automação para virtualização do sistema operacional no Windows e Linux.
@@ -29,12 +34,6 @@ Git commit msg linter - usado para evitar commits boas práticas
 Neste projeto foi usado o banco de dados PostgreSQL com o query builder knex.
 
 `` ``
-# Para iniciar o projeto
-```
- Antes de iniciar o projeto é necessário ter o node.js instalado na máquina (https://nodejs.org/en/download/) junto à biblioteca npm.
- Também é necessário ter o Docker instalado (https://docs.docker.com/)
- 
-```
 # Baixando as depêndencias
 ```
 Após clonar o projeto, na pasta raiz é necessário rodar o comando "docker-compose up" para baixar todas as dependências necessárias e executar o projeto.
@@ -47,34 +46,33 @@ Com o servidor rodando, basta duplicar a aba do seu terminal e rodar npm test.
 # Rotas
 
 `` ``
- URL BASE:
- http: // localhost:3000 => caso esteja rodando na máquina local
+ URL BASE: http://localhost:3000 => caso esteja rodando na máquina local
 
- Laboratórios
+ Laboratórios:
   
- get /laboratory
+ GET /laboratory
   
- post /laboratory
+ POST /laboratory
   
- put  /laboratory/:id
+ PUT  /laboratory/:id
   
- delete /laboratory/:id
+ DELETE /laboratory/:id
    
- Exames
+ Exames:
   
- get /exam
+ GET /exam
   
- post /exam
+ POST /exam
   
- put  /exam/:id
+ PUT  /exam/:id
   
- delete /exam/:id
+ DELETE /exam/:id
   
  Exames ao latoratório
   
- post /laboratory/:id/exam
+ POST /laboratory/:id/exam
   
- delete /laboratory/:id/exam
+ DELETE /laboratory/:id/exam
 
 `` ``
 
