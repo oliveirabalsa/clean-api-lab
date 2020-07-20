@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --passWithNoTests --watch",
+    "test": "jest --passWithNoTests",
     "start": "ts-node-dev  --ignore-watch --no-notify src/presentation/server.ts",
     "test:staged": "jest --passWithNoTests ",
     "migrate": "knex --knexfile knexfile.ts migrate:latest"
