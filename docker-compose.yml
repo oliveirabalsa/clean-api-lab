@@ -5,7 +5,7 @@ services:
     build: .
     container_name: "api-server"
     command: sh -c "npm run
-     migrate && npm start"
+     migrate && npm run serve"
     ports:
       - 3000:3000
     volumes:

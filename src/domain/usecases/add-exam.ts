@@ -8,5 +8,6 @@ export interface AddExamModel {
 }
 
 export interface AddExam {
+  git
   add: (Exam: AddExamModel) => Promise<ExamModel>
 }
