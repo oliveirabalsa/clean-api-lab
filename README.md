@@ -36,7 +36,7 @@ Neste projeto foi usado o banco de dados PostgreSQL com o query builder knex.
 `` ``
 # Executando os testes
 ```
-Para iniciar os testes da aplicação, basta executar na linha de comando "npm test" antes mesmo de iniciar o servidor.
+Para iniciar os testes da aplicação, basta executar na linha de comando "npm install" para instalar as dependências e "npm test" antes mesmo de iniciar o servidor.
 
 ```
 # Baixando as depêndencias
