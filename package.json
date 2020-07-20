@@ -1,6 +1,9 @@
 {
   "name": "api-labs-dasa",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +14,7 @@
     "build": "tsc",
     "migrate": "knex --knexfile knexfile.ts migrate:latest"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oliveirabalsa/api-labs-dasa.git"
