@@ -34,15 +34,16 @@ Git commit msg linter - usado para evitar commits boas práticas
 Neste projeto foi usado o banco de dados PostgreSQL com o query builder knex.
 
 `` ``
+# Executando os testes
+```
+Para iniciar os testes da aplicação, basta executar na linha de comando "npm test" antes mesmo de iniciar o servidor.
+
+```
 # Baixando as depêndencias
 ```
 Após clonar o projeto, na pasta raiz é necessário rodar o comando "docker-compose up" para baixar todas as dependências necessárias e executar o projeto.
 ```
-# Executando os testes
-```
-Com o servidor rodando, basta duplicar a aba do seu terminal e rodar npm test.
 
-```
 # Rotas
 
 `` ``
