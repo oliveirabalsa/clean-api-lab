@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --passWithNoTests",
-    "start": "ts-node-dev  --ignore-watch --no-notify src/presentation/server.ts",
+    "start": "node dist/src/presentation/server.js",
+    "serve": "ts-node-dev  --ignore-watch --no-notify src/presentation/server.ts",
     "test:staged": "jest --passWithNoTests ",
+    "build": "tsc",
     "migrate": "knex --knexfile knexfile.ts migrate:latest"
   },
   "repository": {
@@ -44,6 +46,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "heroku": "^7.42.4",
     "pg": "^8.3.0",
     "supertest": "^4.0.2"
   }
