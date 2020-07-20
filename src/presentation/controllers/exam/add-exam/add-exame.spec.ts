@@ -1,7 +1,7 @@
 import app from '../../../app'
 import request from 'supertest'
 
-describe('Exam Controller', () => {
+describe('ExamController', () => {
   test('Should return 400 if no name is provided', async () => {
     const httpResponse = await request(app)
       .post('/exam')
