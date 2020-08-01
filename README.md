@@ -1,4 +1,4 @@
-# API feita para cadastro de laboratórios e exames.
+# API feita para cadastro de laboratórios e exames, afim de estudo.
 
 Está APi foi construída usando Node.js, framework Express, PostgreSQL e Knex para conexões com bancos de dados.
 
