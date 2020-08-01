@@ -1,4 +1,3 @@
-# api-labs-dasa
 O APi foi construído usando Node.js, framework Express, PostgreSQL e Knex para conexões com bancos de dados.
 
 # Para iniciar o projeto
