@@ -42,7 +42,7 @@ Para iniciar os testes da aplicação, basta executar na linha de comando "npm i
 ```
 # Baixando as depêndencias
 ```
-Após clonar o projeto, na pasta raiz é necessário rodar o comando "docker-compose up" para baixar todas as dependências necessárias e executar o projeto.
+Após clonar o projeto, na pasta raiz é necessário rodar o comando "npm install" e "docker-compose up" para baixar todas as dependências necessárias e executar o projeto.
 ```
 
 # Rotas
