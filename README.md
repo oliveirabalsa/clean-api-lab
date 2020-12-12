@@ -1,6 +1,10 @@
-# API feita para cadastro de laboratórios e exames, afim de estudo.
+# API feita para cadastro de laboratórios e exames.
 
-Está APi foi construída usando Node.js, framework Express, PostgreSQL e Knex para conexões com bancos de dados.
+Para o prjeto foram utilizadas as tecnologias: Node.js, framework Express, PostgreSQL e Knex para conexões com bancos de dados.
+
+# Arquitetura.
+
+A API foi construida utilizando clean architecture, foi utilizado um metodo onde os serviços se conectam com o banco, algo que estamos acostumados ver em repository pattern e as controllers orquestram as chamadas. Foram divididos cada método em sua respectiva pasta, contendo seu teste unitário.
 
 # Para iniciar o projeto
 
